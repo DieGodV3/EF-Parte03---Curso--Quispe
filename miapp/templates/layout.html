@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title%}
+            
+            {% endblock%}
+            | LP3 EF
+        </title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    </head>
+    </head>
+    <body>
+        <header>
+            <div id="logotipo">
+                <img src="{% static 'images/logo_untels.png' %}" class="main-header__logo">
+                <h1>EF - LP III</h1>
+            </div>   
+        </header>
+        <nav>        
+            <ul><li>
+                    <a href="{% url 'saludo' %}">Inicio</a>
+                </li>
+                <li>
+                    <a href="{% url 'integrantes' %}">Integrantes</a>
+                </li>
+                <li>
+                    <a href="{% url 'crearDocente' %}">Agregar docentes </a>
+                </li>
+                <li>
+                    <a href="{% url 'docente' %}">Listado docentes</a>
+                </li>
+                <li>
+                    <a href="{% url 'crearCurso' %}">Agregar cursos</a>
+                </li>
+                <li>
+                    <a href="{% url 'cursos' %}">Listado de cursos</a>
+                </li>
+            </ul>
+        </nav>        
+        <div class="barra">
+            <span class="esquina-izquierda"></span>
+            <span class="relleno-barra"></span>
+            <span class="esquina-derecha"></span>
+        </div>
+        <div id="content">
+            <div class="box">
+                
+                {% block content %}
+                    <strong> Contenido en layout </strong>
+                {% endblock %}
+            </div>
+        </div>
+        <footer>
+            UNTELS - Lenguaje de Programación III EF &copy;  {% now "d/m/Y h:m:s" %}
+        </footer>
+    </body>
+</html>
